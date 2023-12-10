@@ -1,0 +1,18 @@
+{
+    "canisters": {
+        "www": {
+            "type": "assets",
+            "source": ["public"]
+        } 
+    },
+    
+    "dfx": "0.15.1",
+    "networks": {
+        "local": {
+            "bind": "127.0.0.1:8000",
+            "type": "ephemeral"
+        }
+    },
+    "version": 1
+}
+
