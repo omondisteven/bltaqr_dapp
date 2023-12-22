@@ -1,26 +1,27 @@
-//index.js
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './css/index.css';
 import App from './App.js';
-// import MainMenu from './mainmenu.html';
-import reportWebVitals from './reportWebVitals';
-import * as serviceWorker from './sw/serviceWorker';
-import {store as storeToolkit} from './reducers/storeToolkit';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-// import { BrowserRouter } from 'react-router-dom';
-import Config from "./config";
-import {Provider} from "react-redux";
+import reportWebVitals from './reportWebVitals.js';
+import * as serviceWorker from './sw/serviceWorker.js';
+import { store as storeToolkit } from './reducers/storeToolkit.js';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Config from "./config/index.js";
+import Generate from "./generate/index.js"
+import { Provider } from "react-redux";
 
 const RootEl = () => (
   <Provider store={storeToolkit}>
     <Router>
       <Switch>
         <Route path="/config">
-          <Config/>
+          <Config />
+        </Route>
+        <Route path="/generate">
+          <Generate />
         </Route>
         <Route path="/">
-          <App/>
+          <App />
         </Route>
       </Switch>
     </Router>
@@ -28,7 +29,7 @@ const RootEl = () => (
 );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(RootEl());
+root.render(<RootEl />);
 
 reportWebVitals();
 serviceWorker.register();

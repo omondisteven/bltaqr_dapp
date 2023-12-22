@@ -1,5 +1,5 @@
-//App.js
-import React, { Fragment, useState } from "react";
+//App.jsx
+import React, { Fragment, useState, } from "react";
 import { Scan } from "./scan";
 import { Root, Footer, GlobalStyle, Result } from "./css/styles";
 import { initializeAudio } from "./helper";
@@ -8,8 +8,6 @@ import { useHistory, Link } from 'react-router-dom';  // Import Link from 'react
 import { useSelector } from "react-redux";
 import { useQueryState } from "./hooks/useQueryState";
 import { encryptMessage, encodeEncryptedMessageAsBase64 } from "@maslick/kameroon";
-// Import BrowserRouter and Route from react-router-dom
-import { BrowserRouter as Router, Route } from "react-router-dom";
 
 export default function App() {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
@@ -48,21 +46,12 @@ export default function App() {
     setResult(undefined);
   };
 
-  const handleGenerateQRBtn = () => {
-    console.log('Navigating to /generator_index.html');
-    // Use push to navigate to the "/generator_index.html" route
-    push("/generator_index.html");
-    
-     // Reload the page after navigating
-    window.location.reload();
-  };
-
   const renderHelp = () => {
     if (!isCameraOpen && !result)
       return (
         <div style={{ paddingTop: 10 }}>
           <h3>Welcome to...</h3>
-          <img src="./bltaqr_logo.png" alt="BLTA Logo" style={{ width: '200px', marginBottom: '20px', marginTop: '20PX' }} />
+          <img src={require('./assets/bltaqr_black_logo.png')} alt="BLTA Logo" style={{ width: '200px', marginBottom: '20px', marginTop: '20PX' }} />
           
           <h3><a href="https://bltasolutions.co.ke">BLTA QR CODES SCANNER DAPP</a>!</h3>
           <br></br>
@@ -101,37 +90,43 @@ export default function App() {
     );
   };
 
-  return (
-    <div class = "container">
-        <Router>
-      
-          <Fragment>
-            <Root>
-              <div style={{ minHeight: 430, margin: 20 }}>
-                {renderHelp()}
-                {renderResult()}
-                {renderCamera()}
-              </div>
+  const renderGenerateQrButton = () => {
+    if (!isCameraOpen || result) return (
+      <Button style={{ backgroundColor: "black" }} onClick={async () => push("/generate")}>Generate Qr Code</Button>
+    );
+  };
 
-              <Footer>
-                <div>
-                  {!isCameraOpen ?
-                    <>
-                      <Button onClick={handleStartScanBtn}>Scan Qr Code</Button>
-                      <Button style={{ backgroundColor: "blue" }} onClick={handleGenerateQRBtn}>Generate Qr Code</Button>
-                    </> :
-                    <Button onClick={handleStopScanBtn} style={{ backgroundColor: "red", width: '100%' }}>Cancel</Button>
-                  }
-                </div>
-                <div style={{ flexBasis: "100%", height: 0 }}></div>
-                {renderSettingsButton()}
-              </Footer>
-            </Root>
-            <GlobalStyle />
-          </Fragment>
-          <Route path="/generator_index.html" render={() => <iframe src="/public/generator_index.html" style={{ width: '100%', height: 'calc(100vh - 40px)', border: 'none' }} />} />
-        </Router>
-      </div>
-    
+  return (
+    <div className="container">
+      {/* <Router> */}
+        <Fragment>
+          <Root>
+            <div style={{ minHeight: 430, margin: 20 }}>
+              {renderHelp()}
+              {renderResult()}
+              {renderCamera()}
+            </div>
+
+            <Footer>
+              <div>
+                {!isCameraOpen && (
+                  <>
+                    <Button onClick={handleStartScanBtn}>Scan Qr Code</Button>
+                  </>
+                )}
+                {isCameraOpen && (
+                  <Button onClick={handleStopScanBtn} style={{ backgroundColor: "red", width: '100%' }}>Cancel</Button>
+                )}
+              </div>
+              <div style={{ flexBasis: "100%", height: 0 }}></div>
+              {renderGenerateQrButton()}
+              {renderSettingsButton()}              
+            </Footer>
+          </Root>
+          <GlobalStyle />
+        </Fragment>
+        { /* <Route path="/generate" component={Generate} /> */ }
+      {/* </Router> */}
+    </div>
   );
 }

@@ -1,0 +1,91 @@
+/* index.css */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.toggle-label {
+  vertical-align: super;
+  padding-left: 15px;
+}
+
+/* React toggle: Disable wiggle in Safari */
+.react-toggle-track-x {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  transition: none !important;
+}
+
+.react-toggle--checked .react-toggle-track-check {
+  transition: none !important;
+}
+
+.react-toggle-track-check {
+  transition: none !important;
+}
+
+
+/* React toggle: Disable box-shadow */
+.react-toggle--focus .react-toggle-thumb {
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* Add this CSS to your existing styles or create a new styles file */
+#tabs {
+  display: flex;
+  background-color: #333;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid #555;
+  border-radius: 5px 5px 0 0;
+}
+
+.tab:hover {
+  background-color: #555;
+}
+
+.tab.active {
+  background-color: #555;
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+  border: 1px solid #555;
+  border-radius: 0 0 5px 5px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+#generatorIframe {
+  display: none;
+}
+
+.tab-content.active #generatorIframe {
+  display: block;
+}

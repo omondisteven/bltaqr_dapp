@@ -1,7 +1,7 @@
-
 {
   "name": "kameroon",
   "version": "1.0.2",
+  "homepage": "https://omondisteven.github.io/bltaqr-dapp",
   "private": true,
   "dependencies": {
     "@maslick/kameroon": "^1.0.2",
@@ -24,6 +24,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build-sw": "node src/sw/sw-build.js",
@@ -48,5 +51,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.0"
   }
 }

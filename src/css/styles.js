@@ -1,6 +1,11 @@
 import styled, { createGlobalStyle } from "styled-components";
 // import styled from "styled-components";
 
+export const Button = styled.button`
+margin: 0;
+`;
+
+
 export const GlobalStyle = createGlobalStyle`
 * {
   margin: 0;
