@@ -1,7 +1,7 @@
 {
   "name": "kameroon",
   "version": "1.0.2",
-  "homepage": "https://omondisteven.github.io/bltaqr-dapp",
+  "homepage": "https://omondisteven.github.io/bltaqr_scan_gen",
   "private": true,
   "dependencies": {
     "@maslick/kameroon": "^1.0.2",
@@ -26,7 +26,6 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build-sw": "node src/sw/sw-build.js",
