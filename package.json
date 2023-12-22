@@ -1,7 +1,7 @@
 {
   "name": "kameroon",
   "version": "1.0.2",
-  "homepage": "https://omondisteven.github.io/bltaqr_scan_gen",
+  "homepage": "https://omondisteven.github.io/bltaqr_dapp",
   "private": true,
   "dependencies": {
     "@maslick/kameroon": "^1.0.2",
