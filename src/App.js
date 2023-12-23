@@ -111,7 +111,7 @@ export default function App() {
               <div>
                 {!isCameraOpen && (
                   <>
-                    <Button onClick={handleStartScanBtn}>Scan Qr Code</Button>
+                    <Button onClick={handleStartScanBtn}>Back Home</Button>
                   </>
                 )}
                 {isCameraOpen && (
