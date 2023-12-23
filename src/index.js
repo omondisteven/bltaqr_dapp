@@ -5,7 +5,7 @@ import App from './App.js';
 import reportWebVitals from './reportWebVitals.js';
 import * as serviceWorker from './sw/serviceWorker.js';
 import { store as storeToolkit } from './reducers/storeToolkit.js';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import Config from "./config/index.js";
 import Generate from "./generate/index.js"
 import { Provider } from "react-redux";
