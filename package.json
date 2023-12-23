@@ -2,7 +2,7 @@
   "name": "kameroon",
   "version": "1.0.2",
   "homepage": "https://omondisteven.github.io/bltaqr_dapp",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@maslick/kameroon": "^1.0.2",
     "@reduxjs/toolkit": "^1.9.5",
